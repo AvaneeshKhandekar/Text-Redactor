@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 spacy = "*"
 nltk = "*"
-pytest = "*"
 presidio-analyzer = "*"
 presidio-anonymizer = "*"
 
