@@ -117,15 +117,15 @@ def redact_file(input_file, flags, analyzer, stemmer):
 
 def main():
     parser = argparse.ArgumentParser(description='Text Redactor')
-    parser.add_argument('--input', required=True, help='Input files pattern (e.g. *.txt)')
-    parser.add_argument('--names', action='store_true', help='Anonymize names')
-    parser.add_argument('--dates', action='store_true', help='Anonymize dates')
-    parser.add_argument('--phones', action='store_true', help='Anonymize phone numbers')
-    parser.add_argument('--address', action='store_true', help='Anonymize addresses')
+    parser.add_argument('--input', required=True, help='Input files pattern')
+    parser.add_argument('--names', action='store_true', help='Redact names')
+    parser.add_argument('--dates', action='store_true', help='Redact dates')
+    parser.add_argument('--phones', action='store_true', help='Redact phone numbers')
+    parser.add_argument('--address', action='store_true', help='Redact addresses')
     parser.add_argument('--concept', action='append', help='Redact specific concepts (multiple concepts can be passed)',
                         required=True)
     parser.add_argument('--output', required=True, help='Output directory')
-    parser.add_argument('--stats', help='Output anonymization stats file path')
+    parser.add_argument('--stats', help='Output redaction stats file path')
 
     args = parser.parse_args()
 
