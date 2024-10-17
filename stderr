@@ -1,0 +1,688 @@
+Processed file: 204.txt
+Censored Terms Count: 82
+Term: 10/16 @ 11:00 a.m., Count: 3
+  - Censored Term: 10/16 @ 11:00 a.m., Start Index: 205, End Index: 222, Type: DATE_TIME
+  - Censored Term: 10/16 @ 11:00 a.m., Start Index: 765, End Index: 782, Type: DATE_TIME
+  - Censored Term: 10/16 @ 11:00 a.m., Start Index: 1501, End Index: 1518, Type: DATE_TIME
+Term: hayslett, Count: 2
+  - Censored Term: Hayslett, Start Index: 332, End Index: 339, Type: PERSON
+  - Censored Term: Hayslett, Start Index: 706, End Index: 713, Type: PERSON
+Term: rod, Count: 2
+  - Censored Term: Rod, Start Index: 342, End Index: 344, Type: PERSON
+  - Censored Term: Rod, Start Index: 716, End Index: 718, Type: PERSON
+Term: geaccone, Count: 1
+  - Censored Term: Geaccone, Start Index: 394, End Index: 401, Type: PERSON
+Term: tracy, Count: 1
+  - Censored Term: Tracy, Start Index: 404, End Index: 408, Type: PERSON
+Term: tgeacco, Count: 1
+  - Censored Term: Tgeacco, Start Index: 443, End Index: 449, Type: LOCATION
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 513, End Index: 532, Type: PERSON
+Term: stark, Count: 2
+  - Censored Term: Stark, Start Index: 625, End Index: 629, Type: PERSON
+  - Censored Term: Stark, Start Index: 1386, End Index: 1390, Type: PERSON
+Term: cindy 
+sent, Count: 1
+  - Censored Term: Cindy 
+Sent, Start Index: 632, End Index: 642, Type: PERSON
+Term: wednesday, september 26, 2001, Count: 1
+  - Censored Term: Wednesday, September 26, 2001, Start Index: 645, End Index: 673, Type: DATE_TIME
+Term: wednesday, september 26, 2001 7:29 pm, Count: 1
+  - Censored Term: Wednesday, September 26, 2001 7:29 PM, Start Index: 645, End Index: 681, Type: DATE_TIME
+Term: taylor, Count: 3
+  - Censored Term: Taylor, Start Index: 687, End Index: 692, Type: PERSON
+  - Censored Term: Taylor, Start Index: 972, End Index: 977, Type: PERSON
+  - Censored Term: Taylor, Start Index: 1400, End Index: 1405, Type: PERSON
+Term: liz m.
+cc, Count: 1
+  - Censored Term: Liz M.
+Cc, Start Index: 695, End Index: 703, Type: PERSON
+Term: liz, Count: 1
+  - Censored Term: Liz, Start Index: 817, End Index: 819, Type: PERSON
+Term: stan, Count: 2
+  - Censored Term: Stan, Start Index: 824, End Index: 827, Type: PERSON
+  - Censored Term: Stan, Start Index: 906, End Index: 909, Type: PERSON
+Term: dc, Count: 1
+  - Censored Term: DC, Start Index: 851, End Index: 852, Type: LOCATION
+Term: 10-16, Count: 1
+  - Censored Term: 10-16, Start Index: 857, End Index: 861, Type: DATE_TIME
+Term: rod hayslett, Count: 1
+  - Censored Term: Rod Hayslett, Start Index: 867, End Index: 878, Type: PERSON
+Term: cindy, Count: 2
+  - Censored Term: Cindy, Start Index: 931, End Index: 935, Type: PERSON
+  - Censored Term: Cindy, Start Index: 1393, End Index: 1397, Type: PERSON
+Term: liz m. 
+sent, Count: 1
+  - Censored Term: Liz M. 
+Sent, Start Index: 980, End Index: 991, Type: PERSON
+Term: 2:04 pm, Count: 1
+  - Censored Term: 2:04 PM, Start Index: 1008, End Index: 1014, Type: DATE_TIME
+Term: blackwood, Count: 1
+  - Censored Term: Blackwood, Start Index: 1021, End Index: 1029, Type: PERSON
+Term: connie, Count: 1
+  - Censored Term: Connie, Start Index: 1032, End Index: 1037, Type: PERSON
+Term: brown, Count: 1
+  - Censored Term: Brown, Start Index: 1040, End Index: 1044, Type: PERSON
+Term: michael - coo london, Count: 1
+  - Censored Term: Michael - COO London, Start Index: 1047, End Index: 1066, Type: PERSON
+Term: causey, Count: 1
+  - Censored Term: Causey, Start Index: 1069, End Index: 1074, Type: LOCATION
+Term: richard, Count: 1
+  - Censored Term: Richard, Start Index: 1077, End Index: 1083, Type: PERSON
+Term: chapman, Count: 1
+  - Censored Term: Chapman, Start Index: 1086, End Index: 1092, Type: PERSON
+Term: kay, Count: 1
+  - Censored Term: Kay, Start Index: 1095, End Index: 1097, Type: PERSON
+Term: colwell, Count: 1
+  - Censored Term: Colwell, Start Index: 1100, End Index: 1106, Type: PERSON
+Term: wes, Count: 1
+  - Censored Term: Wes, Start Index: 1109, End Index: 1111, Type: PERSON
+Term: delainey, Count: 1
+  - Censored Term: Delainey, Start Index: 1114, End Index: 1121, Type: PERSON
+Term: david, Count: 1
+  - Censored Term: David, Start Index: 1124, End Index: 1128, Type: PERSON
+Term: fallon, Count: 1
+  - Censored Term: Fallon, Start Index: 1131, End Index: 1136, Type: PERSON
+Term: jim, Count: 1
+  - Censored Term: Jim, Start Index: 1139, End Index: 1141, Type: PERSON
+Term: kerry, Count: 1
+  - Censored Term: Kerry, Start Index: 1153, End Index: 1157, Type: PERSON
+Term: sue, Count: 1
+  - Censored Term: Sue, Start Index: 1166, End Index: 1168, Type: PERSON
+Term: hillis, Count: 1
+  - Censored Term: Hillis, Start Index: 1171, End Index: 1176, Type: PERSON
+Term: kimberly, Count: 1
+  - Censored Term: Kimberly, Start Index: 1179, End Index: 1186, Type: PERSON
+Term: james a., Count: 1
+  - Censored Term: James A., Start Index: 1214, End Index: 1221, Type: PERSON
+Term: killen, Count: 1
+  - Censored Term: Killen, Start Index: 1224, End Index: 1229, Type: PERSON
+Term: lavorato, Count: 1
+  - Censored Term: Lavorato, Start Index: 1239, End Index: 1246, Type: PERSON
+Term: john, Count: 2
+  - Censored Term: John, Start Index: 1249, End Index: 1252, Type: PERSON
+  - Censored Term: John, Start Index: 1365, End Index: 1368, Type: PERSON
+Term: marshall, Count: 1
+  - Censored Term: Marshall, Start Index: 1255, End Index: 1262, Type: PERSON
+Term: lucy, Count: 1
+  - Censored Term: Lucy, Start Index: 1265, End Index: 1268, Type: PERSON
+Term: mcconnell, Count: 1
+  - Censored Term: Mcconnell, Start Index: 1271, End Index: 1279, Type: PERSON
+Term: mike, Count: 1
+  - Censored Term: Mike, Start Index: 1282, End Index: 1285, Type: PERSON
+Term: mcmahon, Count: 1
+  - Censored Term: McMahon, Start Index: 1288, End Index: 1294, Type: PERSON
+Term: jeffrey, Count: 1
+  - Censored Term: Jeffrey, Start Index: 1297, End Index: 1303, Type: PERSON
+Term: piper, greg, Count: 1
+  - Censored Term: Piper, Greg, Start Index: 1323, End Index: 1333, Type: PERSON
+Term: rapacioli, Count: 1
+  - Censored Term: Rapacioli, Start Index: 1336, End Index: 1344, Type: PERSON
+Term: marisa, Count: 1
+  - Censored Term: Marisa, Start Index: 1347, End Index: 1352, Type: PERSON
+Term: sherriff, Count: 1
+  - Censored Term: Sherriff, Start Index: 1355, End Index: 1362, Type: PERSON
+Term: spiller, Count: 1
+  - Censored Term: Spiller, Start Index: 1371, End Index: 1377, Type: PERSON
+Term: tina, Count: 1
+  - Censored Term: Tina, Start Index: 1380, End Index: 1383, Type: PERSON
+Term: liz m., Count: 1
+  - Censored Term: Liz M., Start Index: 1408, End Index: 1413, Type: PERSON
+Term: tijerina, Count: 1
+  - Censored Term: Tijerina, Start Index: 1416, End Index: 1423, Type: LOCATION
+Term: shirley, Count: 1
+  - Censored Term: Shirley, Start Index: 1426, End Index: 1432, Type: PERSON
+Term: tuesday, oct. 16, Count: 1
+  - Censored Term: Tuesday, Oct. 16, Start Index: 1541, End Index: 1556, Type: DATE_TIME
+Term: 11:00 a.m., Count: 1
+  - Censored Term: 11:00 a.m., Start Index: 1560, End Index: 1569, Type: DATE_TIME
+Term: london, Count: 1
+  - Censored Term: London, Start Index: 1582, End Index: 1587, Type: LOCATION
+Term: 5:00 p.m., Count: 1
+  - Censored Term: 5:00 p.m., Start Index: 1591, End Index: 1599, Type: DATE_TIME
+Term: weekly, Count: 1
+  - Censored Term: weekly, Start Index: 1634, End Index: 1639, Type: DATE_TIME
+Term: liz taylor
+
+exec, Count: 1
+  - Censored Term: Liz Taylor
+
+Exec, Start Index: 1782, End Index: 1797, Type: PERSON
+Term: greg whalley, Count: 1
+  - Censored Term: Greg Whalley, Start Index: 1813, End Index: 1824, Type: PERSON
+Term: 9/26/2001, Count: 1
+  - Censored Term: 9/26/2001, Start Index: 998, End Index: 1006, Type: DATE_TIME
+Term: 713.853.1935, Count: 1
+  - Censored Term: 713.853.1935, Start Index: 1877, End Index: 1888, Type: PHONE_NUMBER
+Term: 713.853.1838, Count: 1
+  - Censored Term: 713.853.1838, Start Index: 1897, End Index: 1908, Type: PHONE_NUMBER
+Term: meeting, Count: 3
+  - Censored Term: Meeting, Start Index: 195, End Index: 201, Type: CONCEPT
+  - Censored Term: Meeting, Start Index: 195, End Index: 201, Type: CONCEPT
+  - Censored Term: Meeting, Start Index: 1491, End Index: 1497, Type: CONCEPT
+Term: meetings, Count: 1
+  - Censored Term: Meetings, Start Index: 1657, End Index: 1664, Type: CONCEPT
+Processed file: 220.txt
+Censored Terms Count: 24
+Term: 1 oct 2001, Count: 1
+  - Censored Term: 1 Oct 2001, Start Index: 69, End Index: 78, Type: DATE_TIME
+Term: tu, Count: 1
+  - Censored Term: Tu, Start Index: 413, End Index: 414, Type: PERSON
+Term: denis, Count: 1
+  - Censored Term: Denis, Start Index: 417, End Index: 421, Type: PERSON
+Term: centilli, Count: 1
+  - Censored Term: Centilli, Start Index: 467, End Index: 474, Type: PERSON
+Term: james, Count: 1
+  - Censored Term: James, Start Index: 477, End Index: 481, Type: PERSON
+Term: jcentill, Count: 1
+  - Censored Term: Jcentill, Start Index: 516, End Index: 523, Type: PERSON
+Term: geaccone, Count: 1
+  - Censored Term: Geaccone, Start Index: 527, End Index: 534, Type: PERSON
+Term: tracy, Count: 1
+  - Censored Term: Tracy, Start Index: 537, End Index: 541, Type: PERSON
+Term: tgeacco, Count: 1
+  - Censored Term: Tgeacco, Start Index: 576, End Index: 582, Type: LOCATION
+Term: hayslett, Count: 1
+  - Censored Term: Hayslett, Start Index: 586, End Index: 593, Type: PERSON
+Term: rod, Count: 1
+  - Censored Term: Rod, Start Index: 596, End Index: 598, Type: PERSON
+Term: rhaysle, Count: 1
+  - Censored Term: Rhaysle, Start Index: 633, End Index: 639, Type: PERSON
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 703, End Index: 722, Type: PERSON
+Term: friday, september 28, 2001, Count: 1
+  - Censored Term: Friday, September 28, 2001, Start Index: 872, End Index: 897, Type: DATE_TIME
+Term: friday, september 28, 2001 9:06 pm, Count: 1
+  - Censored Term: Friday, September 28, 2001 9:06 PM, Start Index: 872, End Index: 905, Type: DATE_TIME
+Term: us, Count: 1
+  - Censored Term: US, Start Index: 1315, End Index: 1316, Type: LOCATION
+Term: september 11, 2001, Count: 1
+  - Censored Term: September 11, 2001, Start Index: 1377, End Index: 1394, Type: DATE_TIME
+Term: the next year, Count: 1
+  - Censored Term: the next year, Start Index: 1629, End Index: 1641, Type: DATE_TIME
+Term: west, Count: 1
+  - Censored Term: West, Start Index: 1673, End Index: 1676, Type: LOCATION
+Term: this year, Count: 1
+  - Censored Term: this year, Start Index: 1967, End Index: 1975, Type: DATE_TIME
+Term: monthly briefing, Count: 1
+  - Censored Term: Monthly Briefing, Start Index: 2086, End Index: 2101, Type: DATE_TIME
+Term: cera knowledge area(s, Count: 1
+  - Censored Term: CERA Knowledge Area(s, Start Index: 2137, End Index: 2157, Type: PERSON
+Term: autumn 2001, Count: 1
+  - Censored Term: Autumn 2001, Start Index: 2330, End Index: 2340, Type: DATE_TIME
+Term: 2001, Count: 1
+  - Censored Term: 2001, Start Index: 3085, End Index: 3088, Type: DATE_TIME
+Processed file: 253.txt
+Censored Terms Count: 16
+Term: 8 oct 2001, Count: 1
+  - Censored Term: 8 Oct 2001, Start Index: 69, End Index: 78, Type: DATE_TIME
+Term: hayslett, Count: 2
+  - Censored Term: Hayslett, Start Index: 284, End Index: 291, Type: PERSON
+  - Censored Term: Hayslett, Start Index: 643, End Index: 650, Type: PERSON
+Term: rod, Count: 2
+  - Censored Term: Rod, Start Index: 294, End Index: 296, Type: PERSON
+  - Censored Term: Rod, Start Index: 653, End Index: 655, Type: PERSON
+Term: geaccone, Count: 1
+  - Censored Term: Geaccone, Start Index: 346, End Index: 353, Type: PERSON
+Term: tracy, Count: 1
+  - Censored Term: Tracy, Start Index: 356, End Index: 360, Type: PERSON
+Term: tgeacco, Count: 1
+  - Censored Term: Tgeacco, Start Index: 395, End Index: 401, Type: LOCATION
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 465, End Index: 484, Type: PERSON
+Term: monday, october 08, 2001, Count: 2
+  - Censored Term: Monday, October 08, 2001, Start Index: 606, End Index: 629, Type: DATE_TIME
+  - Censored Term: Monday, October 08, 2001, Start Index: 1109, End Index: 1132, Type: DATE_TIME
+Term: monday, october 08, 2001 2:11 pm, Count: 1
+  - Censored Term: Monday, October 08, 2001 2:11 PM, Start Index: 606, End Index: 637, Type: DATE_TIME
+Term: stan, Count: 1
+  - Censored Term: Stan, Start Index: 830, End Index: 833, Type: PERSON
+Term: porterfield, Count: 1
+  - Censored Term: Porterfield, Start Index: 1082, End Index: 1092, Type: PERSON
+Term: tammy  
+sent, Count: 1
+  - Censored Term: Tammy  
+Sent, Start Index: 1095, End Index: 1106, Type: PERSON
+Term: monday, october 08, 2001 1:52 pm, Count: 1
+  - Censored Term: Monday, October 08, 2001 1:52 PM, Start Index: 1109, End Index: 1140, Type: DATE_TIME
+Processed file: 271.txt
+Censored Terms Count: 57
+Term: 14 oct 2001, Count: 1
+  - Censored Term: 14 Oct 2001, Start Index: 69, End Index: 79, Type: DATE_TIME
+Term: schwarzbach, Count: 2
+  - Censored Term: Schwarzbach, Start Index: 305, End Index: 315, Type: PERSON
+  - Censored Term: Schwarzbach, Start Index: 1677, End Index: 1687, Type: PERSON
+Term: stephen, Count: 1
+  - Censored Term: Stephen, Start Index: 318, End Index: 324, Type: PERSON
+Term: geaccone, Count: 5
+  - Censored Term: Geaccone, Start Index: 374, End Index: 381, Type: PERSON
+  - Censored Term: Geaccone, Start Index: 1617, End Index: 1624, Type: PERSON
+  - Censored Term: Geaccone, Start Index: 1831, End Index: 1838, Type: PERSON
+  - Censored Term: Geaccone, Start Index: 2095, End Index: 2102, Type: PERSON
+  - Censored Term: Geaccone, Start Index: 2552, End Index: 2559, Type: PERSON
+Term: tracy, Count: 6
+  - Censored Term: Tracy, Start Index: 384, End Index: 388, Type: PERSON
+  - Censored Term: Tracy, Start Index: 568, End Index: 572, Type: PERSON
+  - Censored Term: Tracy, Start Index: 1627, End Index: 1631, Type: PERSON
+  - Censored Term: Tracy, Start Index: 2105, End Index: 2109, Type: PERSON
+  - Censored Term: Tracy, Start Index: 2443, End Index: 2447, Type: PERSON
+  - Censored Term: Tracy, Start Index: 2661, End Index: 2665, Type: PERSON
+Term: tgeacco, Count: 1
+  - Censored Term: Tgeacco, Start Index: 423, End Index: 429, Type: LOCATION
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 493, End Index: 512, Type: PERSON
+Term: valerie, Count: 2
+  - Censored Term: Valerie, Start Index: 644, End Index: 650, Type: PERSON
+  - Censored Term: Valerie, Start Index: 2600, End Index: 2606, Type: PERSON
+Term: lindsey, Count: 1
+  - Censored Term: Lindsey, Start Index: 992, End Index: 998, Type: PERSON
+Term: butts, Count: 1
+  - Censored Term: Butts, Start Index: 1001, End Index: 1005, Type: PERSON
+Term: steve, Count: 1
+  - Censored Term: Steve, Start Index: 1575, End Index: 1579, Type: PERSON
+Term: friday, october 12, 2001, Count: 2
+  - Censored Term: Friday, October 12, 2001, Start Index: 1640, End Index: 1663, Type: DATE_TIME
+  - Censored Term: Friday, October 12, 2001, Start Index: 1794, End Index: 1817, Type: DATE_TIME
+Term: friday, october 12, 2001 5:46 pm, Count: 1
+  - Censored Term: Friday, October 12, 2001 5:46 PM, Start Index: 1640, End Index: 1671, Type: DATE_TIME
+Term: stephen
+subject, Count: 1
+  - Censored Term: Stephen
+Subject, Start Index: 1690, End Index: 1704, Type: PERSON
+Term: giles, Count: 2
+  - Censored Term: Giles, Start Index: 1772, End Index: 1776, Type: PERSON
+  - Censored Term: Giles, Start Index: 2593, End Index: 2597, Type: PERSON
+Term: valerie 
+sent, Count: 1
+  - Censored Term: Valerie 
+Sent, Start Index: 1779, End Index: 1791, Type: PERSON
+Term: friday, october 12, 2001 5:33 pm, Count: 1
+  - Censored Term: Friday, October 12, 2001 5:33 PM, Start Index: 1794, End Index: 1825, Type: DATE_TIME
+Term: tracy
+cc: winowitch, Count: 1
+  - Censored Term: Tracy
+Cc: Winowitch, Start Index: 1841, End Index: 1859, Type: PERSON
+Term: carolyn, Count: 2
+  - Censored Term: Carolyn, Start Index: 1862, End Index: 1868, Type: PERSON
+  - Censored Term: Carolyn, Start Index: 2584, End Index: 2590, Type: PERSON
+Term: jim, Count: 3
+  - Censored Term: Jim, Start Index: 1899, End Index: 1901, Type: PERSON
+  - Censored Term: Jim, Start Index: 2273, End Index: 2275, Type: PERSON
+  - Censored Term: Jim, Start Index: 2617, End Index: 2619, Type: PERSON
+Term: valerie giles, Count: 1
+  - Censored Term: Valerie Giles, Start Index: 1963, End Index: 1975, Type: PERSON
+Term: yesterday, Count: 1
+  - Censored Term: yesterday, Start Index: 2160, End Index: 2168, Type: DATE_TIME
+Term: 2002, Count: 1
+  - Censored Term: 2002, Start Index: 2225, End Index: 2228, Type: DATE_TIME
+Term: kiri, Count: 1
+  - Censored Term: Kiri, Start Index: 2281, End Index: 2284, Type: PERSON
+Term: steve schwarzbach, Count: 1
+  - Censored Term: Steve Schwarzbach, Start Index: 2415, End Index: 2431, Type: PERSON
+Term: wednesday, october 10, 2001, Count: 1
+  - Censored Term: Wednesday, October 10, 2001, Start Index: 2511, End Index: 2537, Type: DATE_TIME
+Term: wednesday, october 10, 2001 9:11 pm, Count: 1
+  - Censored Term: Wednesday, October 10, 2001 9:11 PM, Start Index: 2511, End Index: 2545, Type: DATE_TIME
+Term: tracy 
+cc: winowitch, Count: 1
+  - Censored Term: Tracy 
+Cc: Winowitch, Start Index: 2562, End Index: 2581, Type: PERSON
+Term: barnes, Count: 1
+  - Censored Term: Barnes, Start Index: 2609, End Index: 2614, Type: PERSON
+Term: stan horton, Count: 1
+  - Censored Term: Stan Horton, Start Index: 2708, End Index: 2718, Type: PERSON
+Term: tomorrow 
+morning, Count: 1
+  - Censored Term: tomorrow 
+morning, Start Index: 2739, End Index: 2755, Type: DATE_TIME
+Term: the year, Count: 1
+  - Censored Term: the year, Start Index: 3168, End Index: 3175, Type: DATE_TIME
+Term: quarterly, Count: 1
+  - Censored Term: quarterly, Start Index: 3183, End Index: 3191, Type: DATE_TIME
+Term: november, Count: 1
+  - Censored Term: November, Start Index: 3254, End Index: 3261, Type: DATE_TIME
+Term: between quarters, Count: 1
+  - Censored Term: between quarters, Start Index: 3296, End Index: 3311, Type: DATE_TIME
+Term: 10/12/01, Count: 1
+  - Censored Term: 10/12/01, Start Index: 2111, End Index: 2118, Type: DATE_TIME
+Term: (503) 464-7307, Count: 1
+  - Censored Term: (503) 464-7307, Start Index: 2033, End Index: 2046, Type: PHONE_NUMBER
+Term: (503) 464-2507, Count: 1
+  - Censored Term: (503) 464-2507, Start Index: 2048, End Index: 2061, Type: PHONE_NUMBER
+Term: see, Count: 3
+  - Censored Term: see, Start Index: 1949, End Index: 1951, Type: CONCEPT
+  - Censored Term: see, Start Index: 2677, End Index: 2679, Type: CONCEPT
+  - Censored Term: see, Start Index: -1, End Index: 1, Type: CONCEPT
+Processed file: 286.txt
+Censored Terms Count: 23
+Term: thu,, Count: 1
+  - Censored Term: Thu,, Start Index: 63, End Index: 66, Type: DATE_TIME
+Term: thu, 18 oct 2001, Count: 1
+  - Censored Term: Thu, 18 Oct 2001, Start Index: 63, End Index: 78, Type: DATE_TIME
+Term: europe, Count: 2
+  - Censored Term: EUROPE, Start Index: 187, End Index: 192, Type: LOCATION
+  - Censored Term: Europe, Start Index: 662, End Index: 667, Type: LOCATION
+Term: stark, Count: 1
+  - Censored Term: Stark, Start Index: 320, End Index: 324, Type: PERSON
+Term: cindy, Count: 1
+  - Censored Term: Cindy, Start Index: 327, End Index: 331, Type: PERSON
+Term: geaccone, Count: 1
+  - Censored Term: Geaccone, Start Index: 380, End Index: 387, Type: PERSON
+Term: tracy, Count: 2
+  - Censored Term: Tracy, Start Index: 390, End Index: 394, Type: PERSON
+  - Censored Term: Tracy, Start Index: 588, End Index: 592, Type: PERSON
+Term: tgeacco, Count: 1
+  - Censored Term: Tgeacco, Start Index: 429, End Index: 435, Type: LOCATION
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 499, End Index: 518, Type: PERSON
+Term: stan, Count: 1
+  - Censored Term: Stan, Start Index: 599, End Index: 602, Type: PERSON
+Term: the week of may 6, 2002, Count: 1
+  - Censored Term: the week of May 6, 2002, Start Index: 624, End Index: 646, Type: DATE_TIME
+Term: colin, Count: 1
+  - Censored Term: Colin, Start Index: 683, End Index: 687, Type: PERSON
+Term: adam, Count: 1
+  - Censored Term: Adam, Start Index: 703, End Index: 706, Type: PERSON
+Term: one week, Count: 1
+  - Censored Term: one week, Start Index: 775, End Index: 782, Type: DATE_TIME
+Term: cindy stark, Count: 1
+  - Censored Term: Cindy Stark, Start Index: 840, End Index: 850, Type: PERSON
+Term: stan horton
+tel, Count: 1
+  - Censored Term: Stan Horton
+Tel, Start Index: 875, End Index: 889, Type: PERSON
+Term: 713/853-6197, Count: 2
+  - Censored Term: 713/853-6197, Start Index: 894, End Index: 905, Type: DATE_TIME
+  - Censored Term: 713/853-6197, Start Index: 894, End Index: 905, Type: PHONE_NUMBER
+Term: 713/345-7047, Count: 1
+  - Censored Term: 713/345-7047, Start Index: 913, End Index: 924, Type: PHONE_NUMBER
+Term: meet, Count: 1
+  - Censored Term: meet, Start Index: -1, End Index: 2, Type: CONCEPT
+Term: see, Count: 1
+  - Censored Term: See, Start Index: -1, End Index: 1, Type: CONCEPT
+Processed file: 305.txt
+Censored Terms Count: 34
+Term: 22 oct 2001, Count: 1
+  - Censored Term: 22 Oct 2001, Start Index: 69, End Index: 79, Type: DATE_TIME
+Term: 22 oct 2001 04:55:34, Count: 1
+  - Censored Term: 22 Oct 2001 04:55:34, Start Index: 69, End Index: 88, Type: DATE_TIME
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 407, End Index: 426, Type: PERSON
+Term: tuesday, oct. 23, Count: 1
+  - Censored Term: Tuesday, Oct. 23, Start Index: 520, End Index: 535, Type: DATE_TIME
+Term: 10 a.m., Count: 1
+  - Censored Term: 10 a.m., Start Index: 541, End Index: 547, Type: DATE_TIME
+Term: houston, Count: 2
+  - Censored Term: Houston, Start Index: 549, End Index: 555, Type: LOCATION
+  - Censored Term: Houston, Start Index: 1233, End Index: 1239, Type: LOCATION
+Term: hyatt, Count: 1
+  - Censored Term: Hyatt, Start Index: 1052, End Index: 1056, Type: LOCATION
+Term: london, Count: 1
+  - Censored Term: London, Start Index: 1311, End Index: 1316, Type: LOCATION
+Term: calgary, Count: 1
+  - Censored Term: Calgary, Start Index: 1319, End Index: 1325, Type: LOCATION
+Term: toronto, Count: 1
+  - Censored Term: Toronto, Start Index: 1328, End Index: 1334, Type: LOCATION
+Term: omaha, Count: 1
+  - Censored Term: Omaha, Start Index: 1337, End Index: 1341, Type: LOCATION
+Term: new york, Count: 1
+  - Censored Term: New York, Start Index: 1344, End Index: 1351, Type: LOCATION
+Term: portland, Count: 1
+  - Censored Term: Portland, Start Index: 1356, End Index: 1363, Type: LOCATION
+Term: sao paulo, Count: 1
+  - Censored Term: Sao Paulo, Start Index: 1672, End Index: 1680, Type: LOCATION
+Term: buenos aires, Count: 1
+  - Censored Term: Buenos Aires, Start Index: 1683, End Index: 1694, Type: LOCATION
+Term: dubai, Count: 1
+  - Censored Term: Dubai, Start Index: 1697, End Index: 1701, Type: LOCATION
+Term: rio de janeiro, Count: 1
+  - Censored Term: Rio de Janeiro, Start Index: 1704, End Index: 1717, Type: LOCATION
+Term: bothell, Count: 1
+  - Censored Term: Bothell, Start Index: 1720, End Index: 1726, Type: LOCATION
+Term: wash., Count: 1
+  - Censored Term: Wash., Start Index: 1729, End Index: 1733, Type: LOCATION
+Term: denver, Count: 1
+  - Censored Term: Denver, Start Index: 1736, End Index: 1741, Type: LOCATION
+Term: san ramon, Count: 1
+  - Censored Term: San Ramon, Start Index: 1744, End Index: 1752, Type: LOCATION
+Term: calif., Count: 1
+  - Censored Term: Calif., Start Index: 1755, End Index: 1760, Type: LOCATION
+Term: chicago, Count: 1
+  - Censored Term: Chicago, Start Index: 1767, End Index: 1773, Type: LOCATION
+Term: yvonne francois, Count: 1
+  - Censored Term: Yvonne Francois, Start Index: 1860, End Index: 1874, Type: PERSON
+Term: (713) 345-8725, Count: 1
+  - Censored Term: (713) 345-8725, Start Index: 1879, End Index: 1892, Type: PHONE_NUMBER
+Term: meeting, Count: 6
+  - Censored Term: Meeting, Start Index: 151, End Index: 157, Type: CONCEPT
+  - Censored Term: Meeting, Start Index: 499, End Index: 505, Type: CONCEPT
+  - Censored Term: Meeting, Start Index: -1, End Index: 5, Type: CONCEPT
+  - Censored Term: meeting, Start Index: 1432, End Index: 1438, Type: CONCEPT
+  - Censored Term: meeting, Start Index: -1, End Index: 5, Type: CONCEPT
+  - Censored Term: meeting, Start Index: -1, End Index: 5, Type: CONCEPT
+Term: receive, Count: 1
+  - Censored Term: receive, Start Index: -1, End Index: 5, Type: CONCEPT
+Term: contact, Count: 1
+  - Censored Term: contact, Start Index: -1, End Index: 5, Type: CONCEPT
+Processed file: 323.txt
+Censored Terms Count: 27
+Term: 25 oct 2001, Count: 1
+  - Censored Term: 25 Oct 2001, Start Index: 68, End Index: 78, Type: DATE_TIME
+Term: diedrich, Count: 1
+  - Censored Term: Diedrich, Start Index: 381, End Index: 388, Type: PERSON
+Term: mark, Count: 1
+  - Censored Term: Mark, Start Index: 391, End Index: 394, Type: PERSON
+Term: geaccone, Count: 1
+  - Censored Term: Geaccone, Start Index: 483, End Index: 490, Type: PERSON
+Term: tracy, Count: 1
+  - Censored Term: Tracy, Start Index: 493, End Index: 497, Type: PERSON
+Term: weitekamp, Count: 1
+  - Censored Term: Weitekamp, Start Index: 542, End Index: 550, Type: PERSON
+Term: james, Count: 1
+  - Censored Term: James, Start Index: 553, End Index: 557, Type: PERSON
+Term: meers, Count: 1
+  - Censored Term: Meers, Start Index: 607, End Index: 611, Type: PERSON
+Term: thomas, Count: 1
+  - Censored Term: Thomas, Start Index: 614, End Index: 619, Type: PERSON
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 716, End Index: 735, Type: PERSON
+Term: mark diedrich, Count: 2
+  - Censored Term: Mark Diedrich, Start Index: 903, End Index: 915, Type: PERSON
+  - Censored Term: Mark Diedrich, Start Index: 962, End Index: 974, Type: PERSON
+Term: 09:44 am, Count: 1
+  - Censored Term: 09:44 AM, Start Index: 944, End Index: 951, Type: DATE_TIME
+Term: 09:20 am, Count: 1
+  - Censored Term: 09:20 AM, Start Index: 987, End Index: 994, Type: DATE_TIME
+Term: tracy geaccone, Count: 1
+  - Censored Term: Tracy Geaccone, Start Index: 1004, End Index: 1017, Type: PERSON
+Term: james weitekamp, Count: 1
+  - Censored Term: James Weitekamp, Start Index: 1037, End Index: 1051, Type: PERSON
+Term: thomas meers, Count: 1
+  - Censored Term: Thomas Meers, Start Index: 1075, End Index: 1086, Type: PERSON
+Term: september, Count: 1
+  - Censored Term: September, Start Index: 1284, End Index: 1292, Type: DATE_TIME
+Term: each month, Count: 1
+  - Censored Term: each month, Start Index: 1368, End Index: 1377, Type: DATE_TIME
+Term: 2002, Count: 2
+  - Censored Term: 2002, Start Index: 1619, End Index: 1622, Type: DATE_TIME
+  - Censored Term: 2002, Start Index: 1685, End Index: 1688, Type: DATE_TIME
+Term: the four year period, Count: 1
+  - Censored Term: the four year period, Start Index: 1739, End Index: 1758, Type: DATE_TIME
+Term: 2002-2005, Count: 1
+  - Censored Term: 2002-2005, Start Index: 1765, End Index: 1773, Type: DATE_TIME
+Term: tom meers, Count: 1
+  - Censored Term: Tom Meers, Start Index: 1986, End Index: 1994, Type: PERSON
+Term: 10/25/2001, Count: 1
+  - Censored Term: 10/25/2001, Start Index: 933, End Index: 942, Type: DATE_TIME
+Term: 10/24/2001, Count: 1
+  - Censored Term: 10/24/2001, Start Index: 976, End Index: 985, Type: DATE_TIME
+Term: 713-993-5604, Count: 1
+  - Censored Term: 713-993-5604, Start Index: 1998, End Index: 2009, Type: PHONE_NUMBER
+Processed file: 342.txt
+Censored Terms Count: 68
+Term: 29 oct 2001, Count: 1
+  - Censored Term: 29 Oct 2001, Start Index: 69, End Index: 79, Type: DATE_TIME
+Term: moore, Count: 4
+  - Censored Term: Moore, Start Index: 358, End Index: 362, Type: PERSON
+  - Censored Term: Moore, Start Index: 1114, End Index: 1118, Type: PERSON
+  - Censored Term: Moore, Start Index: 1367, End Index: 1371, Type: PERSON
+  - Censored Term: Moore, Start Index: 2281, End Index: 2285, Type: PERSON
+Term: jmoore3, Count: 1
+  - Censored Term: JMOORE3, Start Index: 402, End Index: 408, Type: PERSON
+Term: geaccone, Count: 5
+  - Censored Term: Geaccone, Start Index: 417, End Index: 424, Type: PERSON
+  - Censored Term: Geaccone, Start Index: 1053, End Index: 1060, Type: LOCATION
+  - Censored Term: Geaccone, Start Index: 1423, End Index: 1430, Type: LOCATION
+  - Censored Term: Geaccone, Start Index: 2188, End Index: 2195, Type: LOCATION
+  - Censored Term: Geaccone, Start Index: 2513, End Index: 2520, Type: PERSON
+Term: tracy, Count: 3
+  - Censored Term: Tracy, Start Index: 427, End Index: 431, Type: PERSON
+  - Censored Term: Tracy, Start Index: 1433, End Index: 1437, Type: PERSON
+  - Censored Term: Tracy, Start Index: 2660, End Index: 2664, Type: PERSON
+Term: tgeacco, Count: 1
+  - Censored Term: Tgeacco, Start Index: 466, End Index: 472, Type: LOCATION
+Term: watson, Count: 2
+  - Censored Term: Watson, Start Index: 481, End Index: 486, Type: PERSON
+  - Censored Term: Watson, Start Index: 1129, End Index: 1134, Type: PERSON
+Term: kimberly, Count: 2
+  - Censored Term: Kimberly, Start Index: 489, End Index: 496, Type: PERSON
+  - Censored Term: Kimberly, Start Index: 1137, End Index: 1144, Type: PERSON
+Term: kwatson, Count: 1
+  - Censored Term: Kwatson, Start Index: 531, End Index: 537, Type: PERSON
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 594, End Index: 613, Type: PERSON
+Term: west & east, Count: 2
+  - Censored Term: West & East, Start Index: 764, End Index: 774, Type: LOCATION
+  - Censored Term: West & East, Start Index: 812, End Index: 822, Type: LOCATION
+Term: east, Count: 3
+  - Censored Term: East, Start Index: 872, End Index: 875, Type: LOCATION
+  - Censored Term: East, Start Index: 1784, End Index: 1787, Type: LOCATION
+  - Censored Term: East, Start Index: 1879, End Index: 1882, Type: LOCATION
+Term: september ytd, Count: 3
+  - Censored Term: September YTD, Start Index: 997, End Index: 1009, Type: DATE_TIME
+  - Censored Term: September YTD, Start Index: 1656, End Index: 1668, Type: DATE_TIME
+  - Censored Term: September YTD, Start Index: 1756, End Index: 1768, Type: DATE_TIME
+Term: tracy  
+sent, Count: 2
+  - Censored Term: Tracy  
+Sent, Start Index: 1063, End Index: 1074, Type: PERSON
+  - Censored Term: Tracy  
+Sent, Start Index: 2198, End Index: 2209, Type: PERSON
+Term: monday, october 29, 2001, Count: 1
+  - Censored Term: Monday, October 29, 2001, Start Index: 1077, End Index: 1100, Type: DATE_TIME
+Term: friday, october 26, 2001, Count: 1
+  - Censored Term: Friday, October 26, 2001, Start Index: 1386, End Index: 1409, Type: DATE_TIME
+Term: friday, october 26, 2001 3:20 pm, Count: 1
+  - Censored Term: Friday, October 26, 2001 3:20 PM, Start Index: 1386, End Index: 1417, Type: DATE_TIME
+Term: kim watson, Count: 1
+  - Censored Term: Kim Watson, Start Index: 1500, End Index: 1509, Type: PERSON
+Term: west, Count: 1
+  - Censored Term: West, Start Index: 1775, End Index: 1778, Type: LOCATION
+Term: kim, Count: 1
+  - Censored Term: Kim, Start Index: 1992, End Index: 1994, Type: PERSON
+Term: thursday, october 25, 2001, Count: 3
+  - Censored Term: Thursday, October 25, 2001, Start Index: 2212, End Index: 2237, Type: DATE_TIME
+  - Censored Term: Thursday, October 25, 2001, Start Index: 2424, End Index: 2449, Type: DATE_TIME
+  - Censored Term: Thursday, October 25, 2001, Start Index: 2743, End Index: 2768, Type: DATE_TIME
+Term: thursday, october 25, 2001 6:03 pm, Count: 1
+  - Censored Term: Thursday, October 25, 2001 6:03 PM, Start Index: 2212, End Index: 2245, Type: DATE_TIME
+Term: keiser, Count: 1
+  - Censored Term: Keiser, Start Index: 2251, End Index: 2256, Type: PERSON
+Term: john, Count: 1
+  - Censored Term: John, Start Index: 2259, End Index: 2262, Type: PERSON
+Term: gilbert, Count: 1
+  - Censored Term: Gilbert, Start Index: 2265, End Index: 2271, Type: PERSON
+Term: steve, Count: 1
+  - Censored Term: Steve, Start Index: 2274, End Index: 2278, Type: PERSON
+Term: hayslett, Count: 2
+  - Censored Term: Hayslett, Start Index: 2402, End Index: 2409, Type: PERSON
+  - Censored Term: Hayslett, Start Index: 2782, End Index: 2789, Type: PERSON
+Term: rod, Count: 2
+  - Censored Term: Rod, Start Index: 2412, End Index: 2414, Type: PERSON
+  - Censored Term: Rod, Start Index: 2792, End Index: 2794, Type: PERSON
+Term: thursday, october 25, 2001 4:31 pm, Count: 1
+  - Censored Term: Thursday, October 25, 2001 4:31 PM, Start Index: 2424, End Index: 2457, Type: DATE_TIME
+Term: kilmer iii, Count: 1
+  - Censored Term: Kilmer III, Start Index: 2463, End Index: 2472, Type: PERSON
+Term: robert, Count: 1
+  - Censored Term: Robert, Start Index: 2475, End Index: 2480, Type: PERSON
+Term: miller, Count: 1
+  - Censored Term: Miller, Start Index: 2483, End Index: 2488, Type: PERSON
+Term: mary kay, Count: 2
+  - Censored Term: Mary Kay, Start Index: 2491, End Index: 2498, Type: PERSON
+  - Censored Term: Mary Kay, Start Index: 2603, End Index: 2610, Type: PERSON
+Term: ray, Count: 2
+  - Censored Term: Ray, Start Index: 2508, End Index: 2510, Type: PERSON
+  - Censored Term: Ray, Start Index: 2613, End Index: 2615, Type: PERSON
+Term: tracy
+cc:, Count: 1
+  - Censored Term: Tracy
+Cc:, Start Index: 2523, End Index: 2531, Type: PERSON
+Term: rob, Count: 1
+  - Censored Term: Rob, Start Index: 2621, End Index: 2623, Type: PERSON
+Term: thursday, october 25, 2001 2:15 pm, Count: 1
+  - Censored Term: Thursday, October 25, 2001 2:15 PM, Start Index: 2743, End Index: 2776, Type: DATE_TIME
+Term: the first nine months of this year, Count: 1
+  - Censored Term: the first nine months of this year, Start Index: 3271, End Index: 3304, Type: DATE_TIME
+Term: this afternoon, Count: 1
+  - Censored Term: this afternoon, Start Index: 3365, End Index: 3378, Type: DATE_TIME
+Term: houston, Count: 1
+  - Censored Term: Houston, Start Index: 3507, End Index: 3513, Type: LOCATION
+Term: texas, Count: 1
+  - Censored Term: Texas, Start Index: 3516, End Index: 3520, Type: LOCATION
+Term: 713-853-9905, Count: 1
+  - Censored Term: 713-853-9905, Start Index: 3537, End Index: 3548, Type: PHONE_NUMBER
+Term: 713-416-8821, Count: 1
+  - Censored Term: 713-416-8821, Start Index: 3561, End Index: 3572, Type: PHONE_NUMBER
+Term: 713-646-3002, Count: 1
+  - Censored Term: 713-646-3002, Start Index: 3584, End Index: 3595, Type: PHONE_NUMBER
+Term: see, Count: 1
+  - Censored Term: see, Start Index: -1, End Index: 1, Type: CONCEPT
+Processed file: 401.txt
+Censored Terms Count: 16
+Term: 31 oct 2001, Count: 1
+  - Censored Term: 31 Oct 2001, Start Index: 69, End Index: 79, Type: DATE_TIME
+Term: tracy\inbox
+x-origin, Count: 1
+  - Censored Term: Tracy\Inbox
+X-Origin, Start Index: 398, End Index: 417, Type: PERSON
+Term: 2001, Count: 1
+  - Censored Term: 2001, Start Index: 529, End Index: 532, Type: DATE_TIME
+Term: november 27, Count: 1
+  - Censored Term: November 27, Start Index: 572, End Index: 582, Type: DATE_TIME
+Term: november 8 & 9, Count: 1
+  - Censored Term: November 8 & 9, Start Index: 919, End Index: 932, Type: DATE_TIME
+Term: december 13, Count: 1
+  - Censored Term: December 13, Start Index: 938, End Index: 948, Type: DATE_TIME
+Term: today, Count: 1
+  - Censored Term: today, Start Index: 1130, End Index: 1134, Type: DATE_TIME
+Term: december 18, Count: 1
+  - Censored Term: December 18, Start Index: 1321, End Index: 1331, Type: DATE_TIME
+Term: november 19, Count: 1
+  - Censored Term: November 19, Start Index: 1761, End Index: 1771, Type: DATE_TIME
+Term: course, Count: 4
+  - Censored Term: Course, Start Index: 150, End Index: 155, Type: CONCEPT
+  - Censored Term: course, Start Index: 1343, End Index: 1348, Type: CONCEPT
+  - Censored Term: course, Start Index: 1783, End Index: 1788, Type: CONCEPT
+  - Censored Term: course, Start Index: 2361, End Index: 2366, Type: CONCEPT
+Term: courses, Count: 2
+  - Censored Term: courses, Start Index: 507, End Index: 513, Type: CONCEPT
+  - Censored Term: courses, Start Index: -1, End Index: 5, Type: CONCEPT
+Term: meet, Count: 1
+  - Censored Term: meet, Start Index: -1, End Index: 2, Type: CONCEPT
