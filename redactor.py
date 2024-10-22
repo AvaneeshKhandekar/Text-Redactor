@@ -1,6 +1,7 @@
 import argparse
 import glob
 import os
+
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine, OperatorConfig
 from presidio_analyzer.nlp_engine import NlpEngineProvider
@@ -14,57 +15,84 @@ def init_analyzer():
     nltk.download('punkt_tab')
     nltk.download('wordnet')
     stemmer = PorterStemmer()
-    configuration = {"nlp_engine_name": "spacy", "models": [{"lang_code": "en", "model_name": "en_core_web_lg"}]}
+    configuration = {"nlp_engine_name": "spacy", "models": [{"lang_code": "en", "model_name": "en_core_web_trf"}]}
+
     provider = NlpEngineProvider(nlp_configuration=configuration)
     nlp_engine = provider.create_engine()
     analyzer = AnalyzerEngine(nlp_engine=nlp_engine, supported_languages=['en'])
     return analyzer, stemmer
 
 
-def get_related_words(concept_words, stemmer):
-    related_words = set(concept_words)
+def get_related_word_stems(concept_words, stemmer, threshold=0.938):
+    related_word_stems = set()
 
     for word in concept_words:
-        for syn in wn.synsets(word):
-            for lemma in syn.lemmas():
-                related_words.add(lemma.name().lower())
-                related_words.add(stemmer.stem(lemma.name().lower()))
+        word_stem = stemmer.stem(word.lower())
+        related_word_stems.add(word_stem)
+
+        for synset in wn.synsets(word):
+            for lemma in synset.lemmas():
+                related_word_stems.add(stemmer.stem(lemma.name().replace('_', ' ').lower()))
+
+            for hyponym in synset.hyponyms():
+                if synset.wup_similarity(hyponym) >= threshold:
+                    for lemma in hyponym.lemmas():
+                        related_word_stems.add(stemmer.stem(lemma.name().replace('_', ' ').lower()))
+
+        related_word_stems.add(stemmer.stem(word))
+
         if word.endswith('s'):
-            singular = word[:-1]
-            related_words.add(singular)
-            related_words.add(stemmer.stem(singular))
+            related_word_stems.add(stemmer.stem(word[:-1]))
         else:
-            plural = word + 's'
-            related_words.add(plural)
-            related_words.add(stemmer.stem(plural))
+            related_word_stems.add(stemmer.stem(word + 's'))
 
-    return related_words
+    return related_word_stems
 
 
-def concept_redaction(text, concept_words, stemmer):
-    sentences = nltk.sent_tokenize(text)
-    related_words = get_related_words(concept_words, stemmer)
-    redacted_text = text
+def redact_lines(lines, stemmer, related_word_stems, text, censored_terms):
+    result = []
+
+    for line in lines:
+        tokens = nltk.word_tokenize(line)
+        redact_line = False
+
+        for token in tokens:
+            stemmed_token = stemmer.stem(token.lower())
+            if stemmed_token in related_word_stems:
+                redact_line = True
+                break
+
+        if redact_line:
+            start_index = text.find(line)
+            end_index = start_index + len(line) - 1
+            censored_terms.append({
+                "term": line.strip(),
+                "start": start_index,
+                "end": end_index,
+                "type": "CONCEPT"
+            })
+            result.append("█" * len(line))
+        else:
+            result.append(line)
+    return result
+
+
+def concept_redaction(text, concept_words, stemmer=None):
+    if stemmer is None:
+        stemmer = PorterStemmer()
+
+    lines = text.splitlines(keepends=True)
+    related_word_stems = get_related_word_stems(concept_words, stemmer)
     censored_terms = []
+    redacted_lines = []
+    for line in lines:
+        sentences = nltk.sent_tokenize(line)
+        redacted_sentences = redact_lines(sentences, stemmer, related_word_stems, text, censored_terms)
 
-    for sentence in sentences:
-        tokens = nltk.word_tokenize(sentence)
-        redacted_sentence = []
+        redacted_line = ' '.join(redacted_sentences).strip()
+        redacted_lines.append(redacted_line + line[len(line.rstrip()):])
 
-        for i, token in enumerate(tokens):
-            if token.lower() in related_words:
-                redacted_token = "*" * len(token)
-                redacted_sentence.append(redacted_token)
-                start_index = text.find(token, redacted_text.index(sentence))
-                end_index = start_index + len(token) - 1
-                censored_terms.append({"term": token, "start": start_index, "end": end_index, "type": "CONCEPT"})
-
-            else:
-                redacted_sentence.append(token)
-
-        new_sentence = ' '.join(redacted_sentence)
-        redacted_text = redacted_text.replace(sentence, new_sentence)
-
+    redacted_text = ''.join(redacted_lines)
     return redacted_text, censored_terms
 
 
@@ -73,15 +101,15 @@ def anonymize_text(text, analyzer, flags):
     if flags.names:
         entities.append("PERSON")
     if flags.dates:
-        entities.append("DATE_TIME")
+        entities.append("DATE")
     if flags.phones:
         entities.append("PHONE_NUMBER")
     if flags.address:
-        entities.append("LOCATION")
+        entities.extend(["LOCATION", "GPE", "LOC", "FAC"])
 
     operators = {}
     for entity in entities:
-        operators[entity] = OperatorConfig("mask", {"masking_char": "*", "chars_to_mask": 100, "from_end": False})
+        operators[entity] = OperatorConfig("mask", {"masking_char": "█", "chars_to_mask": 50, "from_end": False})
 
     analyzer_results = analyzer.analyze(text=text, entities=entities, language='en')
 
@@ -123,7 +151,7 @@ def main():
     parser.add_argument('--phones', action='store_true', help='Redact phone numbers')
     parser.add_argument('--address', action='store_true', help='Redact addresses')
     parser.add_argument('--concept', action='append', help='Redact specific concepts (multiple concepts can be passed)',
-                        required=True)
+                        required=False)
     parser.add_argument('--output', required=True, help='Output directory')
     parser.add_argument('--stats', help='Output redaction stats file path')
 
@@ -140,7 +168,7 @@ def main():
 
     for input_file in input_files:
         redacted_text, censored_terms = redact_file(input_file, args, analyzer, stemmer)
-        output_file = os.path.join(args.output, os.path.basename(input_file)+'.censored')
+        output_file = os.path.join(args.output, os.path.basename(input_file) + '.censored')
 
         with open(output_file, 'w', encoding='utf-8') as file:
             file.write(redacted_text)
@@ -158,7 +186,7 @@ def main():
             for censored in censored_terms:
                 if censored["term"].lower() == term:
                     stats.append(
-                        f"  - Censored Term: {censored['term']}, Start Index: {censored['start']}, End Index: {censored['end']}, Type: {censored['type']}\n")
+                        f"  - Start Index: {censored['start']}, End Index: {censored['end']}, Type: {censored['type']}\n")
 
     if args.stats:
         with open(args.stats, 'w', encoding='utf-8') as stats_file:
