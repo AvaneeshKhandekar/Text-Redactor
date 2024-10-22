@@ -7,7 +7,7 @@ from redactor import (init_analyzer, get_related_word_stems,
 
 @pytest.fixture
 def analyzer_and_stemmer():
-    analyzer, stemmer = init_analyzer()
+    analyzer, stemmer = init_analyzer(model="en_core_web_lg")
     return analyzer, stemmer
 
 

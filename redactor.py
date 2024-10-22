@@ -10,12 +10,12 @@ from nltk.corpus import wordnet as wn
 from nltk.stem import PorterStemmer
 
 
-def init_analyzer():
+def init_analyzer(model="en_core_web_trf"):
     nltk.download('punkt')
     nltk.download('punkt_tab')
     nltk.download('wordnet')
     stemmer = PorterStemmer()
-    configuration = {"nlp_engine_name": "spacy", "models": [{"lang_code": "en", "model_name": "en_core_web_trf"}]}
+    configuration = {"nlp_engine_name": "spacy", "models": [{"lang_code": "en", "model_name": model}]}
 
     provider = NlpEngineProvider(nlp_configuration=configuration)
     nlp_engine = provider.create_engine()
