@@ -2,10 +2,10 @@ import argparse
 import glob
 import os
 import re
-import spacy
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk.stem import PorterStemmer
+import en_core_web_lg
 
 
 def init_model():
@@ -13,7 +13,7 @@ def init_model():
     nltk.download('punkt_tab')
     nltk.download('wordnet')
     stemmer = PorterStemmer()
-    nlp = spacy.load('en_core_web_lg')
+    nlp = en_core_web_lg.load()
     return nlp, stemmer
 
 
