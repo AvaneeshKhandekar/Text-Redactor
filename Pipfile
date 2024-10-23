@@ -8,11 +8,6 @@ spacy = "*"
 spacy-transformers = "*"
 nltk = "*"
 pytest = "*"
-presidio-analyzer = "*"
-presidio-anonymizer = "*"
-
-[scripts]
-download_spacy_model = "python -m spacy download en_core_web_trf"
 
 [dev-packages]
 

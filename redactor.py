@@ -1,26 +1,20 @@
 import argparse
 import glob
 import os
-
-from presidio_analyzer import AnalyzerEngine
-from presidio_anonymizer import AnonymizerEngine, OperatorConfig
-from presidio_analyzer.nlp_engine import NlpEngineProvider
+import re
+import spacy
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk.stem import PorterStemmer
 
 
-def init_analyzer(model="en_core_web_trf"):
+def init_model():
     nltk.download('punkt')
     nltk.download('punkt_tab')
     nltk.download('wordnet')
     stemmer = PorterStemmer()
-    configuration = {"nlp_engine_name": "spacy", "models": [{"lang_code": "en", "model_name": model}]}
-
-    provider = NlpEngineProvider(nlp_configuration=configuration)
-    nlp_engine = provider.create_engine()
-    analyzer = AnalyzerEngine(nlp_engine=nlp_engine, supported_languages=['en'])
-    return analyzer, stemmer
+    nlp = spacy.load('en_core_web_lg')
+    return nlp, stemmer
 
 
 def get_related_word_stems(concept_words, stemmer, threshold=0.938):
@@ -53,8 +47,8 @@ def redact_lines(lines, stemmer, related_word_stems, text, censored_terms):
     result = []
 
     for line in lines:
-        tokens = nltk.word_tokenize(line)
         redact_line = False
+        tokens = nltk.word_tokenize(line)
 
         for token in tokens:
             stemmed_token = stemmer.stem(token.lower())
@@ -63,17 +57,26 @@ def redact_lines(lines, stemmer, related_word_stems, text, censored_terms):
                 break
 
         if redact_line:
-            start_index = text.find(line)
-            end_index = start_index + len(line) - 1
+            redacted_line = ""
+
+            for char in line:
+                if char == '\n':
+                    redacted_line += '\n'
+                elif char == '\t':
+                    redacted_line += '\t'
+                else:
+                    redacted_line += '█'
+
             censored_terms.append({
                 "term": line.strip(),
-                "start": start_index,
-                "end": end_index,
+                "start": text.find(line),
+                "end": text.find(line) + len(line) - 1,
                 "type": "CONCEPT"
             })
-            result.append("█" * len(line))
+            result.append(redacted_line)
         else:
             result.append(line)
+
     return result
 
 
@@ -82,59 +85,138 @@ def concept_redaction(text, concept_words, stemmer=None):
         stemmer = PorterStemmer()
 
     lines = text.splitlines(keepends=True)
+
+    header_lines = []
+    body_lines = []
+    body_started = False
+
+    for line in lines:
+        if body_started:
+            body_lines.append(line)
+        else:
+            if line.strip() == "":
+                body_started = True
+            else:
+                header_lines.append(line)
+
+    headers = ''.join(header_lines)
+
     related_word_stems = get_related_word_stems(concept_words, stemmer)
     censored_terms = []
-    redacted_lines = []
-    for line in lines:
-        sentences = nltk.sent_tokenize(line)
-        redacted_sentences = redact_lines(sentences, stemmer, related_word_stems, text, censored_terms)
 
-        redacted_line = ' '.join(redacted_sentences).strip()
-        redacted_lines.append(redacted_line + line[len(line.rstrip()):])
+    redacted_header_lines = redact_lines(header_lines, stemmer, related_word_stems, headers, censored_terms)
 
-    redacted_text = ''.join(redacted_lines)
-    return redacted_text, censored_terms
+    body_text = ''.join(body_lines)
+    sentences = nltk.sent_tokenize(body_text)
 
+    redacted_sentences = redact_lines(sentences, stemmer, related_word_stems, body_text, censored_terms)
 
-def anonymize_text(text, analyzer, flags):
-    entities = []
-    if flags.names:
-        entities.append("PERSON")
-    if flags.dates:
-        entities.append("DATE")
-    if flags.phones:
-        entities.append("PHONE_NUMBER")
-    if flags.address:
-        entities.extend(["LOCATION", "GPE", "LOC", "FAC"])
+    redacted_body_text = ' '.join(redacted_sentences)
 
-    operators = {}
-    for entity in entities:
-        operators[entity] = OperatorConfig("mask", {"masking_char": "█", "chars_to_mask": 50, "from_end": False})
-
-    analyzer_results = analyzer.analyze(text=text, entities=entities, language='en')
-
-    anonymizer = AnonymizerEngine()
-    anonymized_result = anonymizer.anonymize(text=text, analyzer_results=analyzer_results, operators=operators)
-
-    censored_terms = []
-    for result in analyzer_results:
-        start_index = result.start
-        end_index = result.end - 1
-        term = text[start_index:end_index + 1]
-        censored_terms.append({"term": term, "start": start_index, "end": end_index, "type": result.entity_type})
-
-    return anonymized_result.text, censored_terms
+    return ''.join(redacted_header_lines) + redacted_body_text, censored_terms
 
 
-def redact_file(input_file, flags, analyzer, stemmer):
+def redact_names(text, doc, redaction_char, censored_terms):
+    # Handle email redaction within the persons section
+    email_pattern = r'([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+\.[A-Z|a-z]{2,})'
+    text = re.sub(email_pattern, lambda match: ' '.join(match.group(1).split('.')) + ' @' + match.group(2), text)
+
+    for ent in doc.ents:
+        if ent.label_ == 'PERSON':
+            redacted_text = redaction_char * len(ent.text)
+            text = text.replace(ent.text, redacted_text)
+            censored_terms.append({
+                "term": ent.text,
+                "start": ent.start_char,
+                "end": ent.end_char,
+                "type": "PERSON"
+            })
+    return text
+
+
+def redact_dates(text, doc, redaction_char, censored_terms):
+    for ent in doc.ents:
+        if ent.label_ == 'DATE':
+            redacted_text = redaction_char * len(ent.text)
+            text = text.replace(ent.text, redacted_text)
+            censored_terms.append({
+                "term": ent.text,
+                "start": ent.start_char,
+                "end": ent.end_char,
+                "type": "DATE"
+            })
+    return text
+
+
+def redact_addresses(text, doc, redaction_char, censored_terms):
+    for ent in doc.ents:
+        if ent.label_ in ['GPE', 'LOC', 'FAC']:
+            redacted_text = redaction_char * len(ent.text)
+            text = text.replace(ent.text, redacted_text)
+            censored_terms.append({
+                "term": ent.text,
+                "start": ent.start_char,
+                "end": ent.end_char,
+                "type": ent.label_
+            })
+
+    address_pattern = re.compile(
+        r'\b\d{1,4}\s[\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|broadway|hwy|square|sq|trail|trl|drive|dr|court|ct|park|parkway|pkwy|circle|cir|boulevard|blvd)?\b|\b\d{5}(?:-\d{4})?\b',
+        re.IGNORECASE
+    )
+    matches = address_pattern.finditer(text)
+    for match in matches:
+        term = match.group()
+        redacted_text = redaction_char * len(term)
+        text = text.replace(term, redacted_text)
+        censored_terms.append({
+            "term": term,
+            "start": match.start(),
+            "end": match.end(),
+            "type": "ADDRESS"
+        })
+
+    return text
+
+
+def redact_phones(text, redaction_char, censored_terms):
+    phone_pattern = r"(?<!\d)(\+\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?|\(\d{3}\)-)\d{3}[\s.-]?\d{4}(?!\d)"
+    matches = re.finditer(phone_pattern, text)
+
+    for match in matches:
+        term = match.group()
+        redacted_text = redaction_char * len(term)
+        text = text.replace(term, redacted_text)
+        censored_terms.append({
+            "term": term,
+            "start": match.start(),
+            "end": match.end(),
+            "type": "PHONE"
+        })
+
+    return text
+
+
+def redact_file(input_file, flags, nlp, stemmer):
     with open(input_file, 'r') as file:
         text = file.read()
 
     censored_terms = []
+    redaction_char = '█'
 
-    if flags.names or flags.dates or flags.phones or flags.address:
-        text, terms = anonymize_text(text, analyzer, flags)
-        censored_terms.extend(terms)
+    doc = nlp(text)
+
+    if flags.names:
+        text = redact_names(text, doc, redaction_char, censored_terms)
+
+    if flags.dates:
+        text = redact_dates(text, doc, redaction_char, censored_terms)
+
+    if flags.address:
+        text = redact_addresses(text, doc, redaction_char, censored_terms)
+
+    if flags.phones:
+        text = redact_phones(text, redaction_char, censored_terms)
 
     if flags.concept:
         text, terms = concept_redaction(text, flags.concept, stemmer)
@@ -157,7 +239,7 @@ def main():
 
     args = parser.parse_args()
 
-    analyzer, stemmer = init_analyzer()
+    nlp, stemmer = init_model()
 
     input_files = sorted(glob.glob(args.input))
 
@@ -167,7 +249,7 @@ def main():
     stats = []
 
     for input_file in input_files:
-        redacted_text, censored_terms = redact_file(input_file, args, analyzer, stemmer)
+        redacted_text, censored_terms = redact_file(input_file, args, nlp, stemmer)
         output_file = os.path.join(args.output, os.path.basename(input_file) + '.censored')
 
         with open(output_file, 'w', encoding='utf-8') as file:
@@ -193,5 +275,5 @@ def main():
             stats_file.writelines(stats)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

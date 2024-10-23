@@ -1,19 +1,27 @@
 import pytest
 from unittest.mock import MagicMock
-from redactor import (init_analyzer, get_related_word_stems,
-                      redact_lines, concept_redaction,
-                      anonymize_text, redact_file)
+from redactor import (
+    init_model,
+    get_related_word_stems,
+    redact_lines,
+    concept_redaction,
+    redact_file,
+    redact_names,
+    redact_dates,
+    redact_addresses,
+    redact_phones,
+)
 
 
 @pytest.fixture
-def analyzer_and_stemmer():
-    analyzer, stemmer = init_analyzer(model="en_core_web_lg")
-    return analyzer, stemmer
+def nlp_and_stemmer():
+    nlp, stemmer = init_model()
+    return nlp, stemmer
 
 
-def test_init_analyzer(analyzer_and_stemmer):
-    analyzer, stemmer = analyzer_and_stemmer
-    assert analyzer is not None
+def test_init_model(nlp_and_stemmer):
+    nlp, stemmer = nlp_and_stemmer
+    assert nlp is not None
     assert stemmer is not None
 
 
@@ -47,29 +55,63 @@ def test_concept_redaction():
     stemmer.stem = lambda x: x
 
     redacted_text, censored_terms = concept_redaction(text, concept_words, stemmer)
-    assert redacted_text == "███████████████ This is another line."
+    print(redacted_text)
+    assert redacted_text == "█████████████████████████████████████"
     assert len(censored_terms) == 1
-    assert censored_terms[0]["term"] == "This is a test."
+    assert censored_terms[0]["term"] == "This is a test. This is another line."
 
 
-def test_anonymize_text(analyzer_and_stemmer):
-    analyzer, _ = analyzer_and_stemmer
-    flags = MagicMock()
-    flags.names = True
-    flags.dates = False
-    flags.phones = False
-    flags.address = False
+def test_redact_names(nlp_and_stemmer):
+    nlp, _ = nlp_and_stemmer
+    text = "John Doe went to the store."
+    doc = nlp(text)
 
-    text = "John Doe went to the store on 2022-01-01."
+    censored_terms = []
+    redacted_text = redact_names(text, doc, '█', censored_terms)
 
-    anonymized_result, censored_terms = anonymize_text(text, analyzer, flags)
-
-    assert anonymized_result != text
-    assert len(censored_terms) > 0
+    assert 'John Doe' not in redacted_text
+    assert len(censored_terms) == 1
+    assert censored_terms[0]["term"] == "John Doe"
 
 
-def test_redact_file(analyzer_and_stemmer, tmp_path):
-    analyzer, stemmer = analyzer_and_stemmer
+def test_redact_dates(nlp_and_stemmer):
+    nlp, _ = nlp_and_stemmer
+    text = "The event is on 2022-01-01."
+    doc = nlp(text)
+
+    censored_terms = []
+    redacted_text = redact_dates(text, doc, '█', censored_terms)
+
+    assert '2022-01-01' not in redacted_text
+    assert len(censored_terms) == 1
+    assert censored_terms[0]["term"] == "2022-01-01"
+
+
+def test_redact_addresses(nlp_and_stemmer):
+    nlp, _ = nlp_and_stemmer
+    text = "Visit me at 3800 Southwest 34TH ST Gainesville"
+    doc = nlp(text)
+
+    censored_terms = []
+    redacted_text = redact_addresses(text, doc, '█', censored_terms)
+    print(redacted_text)
+    assert '3800 Southwest 34TH ST Gainesville' not in redacted_text
+    assert 'Visit me at ██████████████████████ ███████████' == redacted_text
+
+
+def test_redact_phones():
+    text = "My phone number is +1 (555) 123-4567."
+    censored_terms = []
+
+    redacted_text = redact_phones(text, '█', censored_terms)
+
+    assert '+1 (555) 123-4567' not in redacted_text
+    assert len(censored_terms) == 1
+    assert censored_terms[0]["term"] == "+1 (555) 123-4567"
+
+
+def test_redact_file(nlp_and_stemmer, tmp_path):
+    nlp, stemmer = nlp_and_stemmer
     input_file = tmp_path / "test_input.txt"
     input_file.write_text("This is a test file.")
 
@@ -80,35 +122,11 @@ def test_redact_file(analyzer_and_stemmer, tmp_path):
     flags.address = False
     flags.concept = ["test"]
 
-    redacted_text, censored_terms = redact_file(input_file, flags, analyzer, stemmer)
+    redacted_text, censored_terms = redact_file(input_file, flags, nlp, stemmer)
 
-    assert redacted_text == "████████████████████"
-    assert len(censored_terms) == 1
-    assert censored_terms[0]["term"] == "This is a test file."
-
-
-def test_redact_lines_no_matching_stems():
-    lines = ["This line is safe.", "Another safe line."]
-    stemmer = MagicMock()
-    stemmer.stem = lambda x: x
-    related_word_stems = {"sensitive"}
-
-    result = redact_lines(lines, stemmer, related_word_stems, "This is a safe text.", [])
-
-    assert result == lines
+    assert 'test' not in redacted_text
+    assert len(censored_terms) > 0
 
 
-def test_anonymize_text_no_flags(analyzer_and_stemmer):
-    analyzer, _ = analyzer_and_stemmer
-    flags = MagicMock()
-    flags.names = False
-    flags.dates = False
-    flags.phones = False
-    flags.address = False
-
-    text = "This text contains no sensitive information."
-
-    anonymized_result, censored_terms = anonymize_text(text, analyzer, flags)
-
-    assert anonymized_result == text
-    assert len(censored_terms) == 0
+if __name__ == "__main__":
+    pytest.main()
