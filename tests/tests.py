@@ -96,7 +96,7 @@ def test_redact_addresses(nlp_and_stemmer):
     redacted_text = redact_addresses(text, doc, '█', censored_terms)
     print(redacted_text)
     assert '3800 Southwest 34TH ST Gainesville' not in redacted_text
-    assert 'Visit me at ██████████████████████ ███████████' == redacted_text
+    assert 'Visit me at ████ █████████ ████ ██ ███████████' == redacted_text
 
 
 def test_redact_phones():

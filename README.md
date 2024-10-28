@@ -125,6 +125,7 @@ The script can process multiple input files, generating redacted output files wi
 #### - `redact_addresses(text, doc, redaction_char, censored_terms):`
 
 - Redacts addresses identified in the text using the provided NLP model and regular expressions.
+- Also uses usaddress python library to redact missed address values.
 - Returns the redacted text.
 
 #### - `redact_phones(text, redaction_char, censored_terms):`

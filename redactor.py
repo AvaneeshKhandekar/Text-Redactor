@@ -2,7 +2,10 @@ import argparse
 import glob
 import os
 import re
+import sys
+
 import nltk
+import usaddress
 from nltk.corpus import wordnet as wn
 from nltk.stem import PorterStemmer
 import en_core_web_lg
@@ -117,7 +120,6 @@ def concept_redaction(text, concept_words, stemmer=None):
 
 
 def redact_names(text, doc, redaction_char, censored_terms):
-    # Handle email redaction within the persons section
     email_pattern = r'([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+\.[A-Z|a-z]{2,})'
     text = re.sub(email_pattern, lambda match: ' '.join(match.group(1).split('.')) + ' @' + match.group(2), text)
 
@@ -160,21 +162,48 @@ def redact_addresses(text, doc, redaction_char, censored_terms):
                 "type": ent.label_
             })
 
-    address_pattern = re.compile(
-        r'\b\d{1,4}\s[\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|broadway|hwy|square|sq|trail|trl|drive|dr|court|ct|park|parkway|pkwy|circle|cir|boulevard|blvd)?\b|\b\d{5}(?:-\d{4})?\b',
+    datetime_regex = r'\b\d{1,2}:\d{2}:\d{2}'
+    address_entities = usaddress.parse(text)
+    for addr_entity in address_entities:
+        term, label = addr_entity
+        if re.fullmatch(datetime_regex, term):
+            continue
+        if label in ['AddressNumber', 'StreetName', 'StreetNamePostType', 'StreetNamePreDirectional', 'OccupancyType',
+                     'OccupancyIdentifier',
+                     'PlaceName', 'StateName', 'ZipCode']:
+            start_idx = text.find(term)
+            if start_idx != -1:
+                end_idx = start_idx + len(term)
+                redacted_text = redaction_char * len(term)
+                text = text[:start_idx] + redacted_text + text[end_idx:]
+                censored_terms.append({
+                    "term": term,
+                    "start": start_idx,
+                    "end": end_idx,
+                    "type": label
+                })
+
+    street_address_pattern = re.compile(
+        r'\d+\s+\w+\s+(Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Broadway)',
         re.IGNORECASE
     )
-    matches = address_pattern.finditer(text)
-    for match in matches:
-        term = match.group()
-        redacted_text = redaction_char * len(term)
-        text = text.replace(term, redacted_text)
-        censored_terms.append({
-            "term": term,
-            "start": match.start(),
-            "end": match.end(),
-            "type": "ADDRESS"
-        })
+    po_box_pattern = re.compile(r'(P\.?\s?O\.?\s?Box\s?\d+)', re.IGNORECASE)
+    zip_code_pattern = re.compile(r'\b\d{5}(?:-\d{4})?\b', re.IGNORECASE)
+
+    for pattern, label in [(street_address_pattern, "STREET_ADDRESS"),
+                           (po_box_pattern, "PO_BOX"),
+                           (zip_code_pattern, "ZIP_CODE")]:
+        matches = pattern.finditer(text)
+        for match in matches:
+            term = match.group()
+            redacted_text = redaction_char * len(term)
+            text = text.replace(term, redacted_text)
+            censored_terms.append({
+                "term": term,
+                "start": match.start(),
+                "end": match.end(),
+                "type": label
+            })
 
     return text
 
@@ -271,8 +300,13 @@ def main():
                         f"  - Start Index: {censored['start']}, End Index: {censored['end']}, Type: {censored['type']}\n")
 
     if args.stats:
-        with open(args.stats, 'w', encoding='utf-8') as stats_file:
-            stats_file.writelines(stats)
+        if args.stats.lower() == 'stdout':
+            sys.stdout.writelines(stats)
+        elif args.stats.lower() == 'stderr':
+            sys.stderr.writelines(stats)
+        else:
+            with open(args.stats, 'w', encoding='utf-8') as stats_file:
+                stats_file.writelines(stats)
 
 
 if __name__ == "__main__":
