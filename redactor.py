@@ -83,10 +83,7 @@ def redact_lines(lines, stemmer, related_word_stems, text, censored_terms):
     return result
 
 
-def concept_redaction(text, concept_words, stemmer=None):
-    if stemmer is None:
-        stemmer = PorterStemmer()
-
+def concept_redaction(text, concept_words, stemmer):
     lines = text.splitlines(keepends=True)
 
     header_lines = []
@@ -137,6 +134,26 @@ def redact_names(text, doc, redaction_char, censored_terms):
 
 
 def redact_dates(text, doc, redaction_char, censored_terms):
+    date_pattern = re.compile(
+        r'(?:(?<!\:)(?<!\:\d)[0-3]?\d(?:st|nd|rd|th)?\s+(?:of\s+)?'
+        r'(?:jan\.?|january|feb\.?|february|mar\.?|march|apr\.?|april|may|jun\.?|june|jul\.?|july|aug\.?|august|'
+        r'sep\.?|september|oct\.?|october|nov\.?|november|dec\.?|december)|'
+        r'(?:jan\.?|january|feb\.?|february|mar\.?|march|apr\.?|april|may|jun\.?|june|jul\.?|july|aug\.?|august|'
+        r'sep\.?|september|oct\.?|october|nov\.?|november|dec\.?|december)\s+(?<!\:)(?<!\:\d)[0-3]?\d(?:st|nd|rd|th)?)'
+        r'(?:\,)?\s*(?:\d{4})?|[0-3]?\d[-\./][0-3]?\d[-\./]\d{2,4}',
+        re.IGNORECASE
+    )
+    for match in date_pattern.finditer(text):
+        redacted_text = redaction_char * len(match.group())
+        start, end = match.span()
+        text = text[:start] + redacted_text + text[end:]
+        censored_terms.append({
+            "term": match.group(),
+            "start": start,
+            "end": end,
+            "type": "DATE"
+        })
+
     for ent in doc.ents:
         if ent.label_ == 'DATE':
             redacted_text = redaction_char * len(ent.text)
@@ -147,6 +164,7 @@ def redact_dates(text, doc, redaction_char, censored_terms):
                 "end": ent.end_char,
                 "type": "DATE"
             })
+
     return text
 
 
@@ -183,12 +201,9 @@ def redact_addresses(text, doc, redaction_char, censored_terms):
                     "type": label
                 })
 
-    street_address_pattern = re.compile(
-        r'\d+\s+\w+\s+(Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Broadway)',
-        re.IGNORECASE
-    )
-    po_box_pattern = re.compile(r'(P\.?\s?O\.?\s?Box\s?\d+)', re.IGNORECASE)
-    zip_code_pattern = re.compile(r'\b\d{5}(?:-\d{4})?\b', re.IGNORECASE)
+    street_address_pattern = re.compile('\d{1,4} [\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|hwy|square|sq|trail|trl|drive|dr|court|ct|park|parkway|pkwy|circle|cir|boulevard|blvd)\W?(?=\s|$)', re.IGNORECASE)
+    po_box_pattern = re.compile(r'P\.? ?O\.? Box \d+', re.IGNORECASE)
+    zip_code_pattern = re.compile(r'\b\d{5}(?:[-\s]\d{4})?\b')
 
     for pattern, label in [(street_address_pattern, "STREET_ADDRESS"),
                            (po_box_pattern, "PO_BOX"),
@@ -209,7 +224,7 @@ def redact_addresses(text, doc, redaction_char, censored_terms):
 
 
 def redact_phones(text, redaction_char, censored_terms):
-    phone_pattern = r"(?<!\d)(\+\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?|\(\d{3}\)-)\d{3}[\s.-]?\d{4}(?!\d)"
+    phone_pattern = re.compile('''((?:(?<![\d-])(?:\+?\d{1,3}[-.\s*]?)?(?:\(?\d{3}\)?[-.\s*]?)?\d{3}[-.\s*]?\d{4}(?![\d-]))|(?:(?<![\d-])(?:(?:\(\+?\d{2}\))|(?:\+?\d{2}))\s*\d{2}\s*\d{3}\s*\d{4}(?![\d-])))''')
     matches = re.finditer(phone_pattern, text)
 
     for match in matches:

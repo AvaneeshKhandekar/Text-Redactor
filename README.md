@@ -206,6 +206,7 @@ The script can process multiple input files, generating redacted output files wi
 - **Language**: It is assumed that all text will be in standard English Language.
 - **Concept Redaction**: It is assumed that only synonyms and certain hyponyms need to be redacted related to the
   concept based on WUP similarity threshold of 0.938.
+- **Address Redaction**: Address redaction includes us addresses, locations, organizations and facilities.
 
 ### BUGS:
 
@@ -213,7 +214,7 @@ The script can process multiple input files, generating redacted output files wi
   addresses.
 - **Address Redaction**: Spacy is very bad in recognizing street addresses, the regex added does not cover all patterns
   of addresses.
-
+- **Output Format**: This script struggles to maintain original file structure with new lines (\n) after redaction.
 
 
 
