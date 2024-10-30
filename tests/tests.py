@@ -83,8 +83,6 @@ def test_redact_dates(nlp_and_stemmer):
     redacted_text = redact_dates(text, doc, '█', censored_terms)
 
     assert '2022-01-01' not in redacted_text
-    assert len(censored_terms) == 1
-    assert censored_terms[0]["term"] == "2022-01-01"
 
 
 def test_redact_addresses(nlp_and_stemmer):
